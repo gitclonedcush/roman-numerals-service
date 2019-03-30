@@ -5,6 +5,7 @@ import java.util.TreeMap;
 
 public class RomanNumeral{
 
+    private final Integer numeral;
     private final String romanNumeral;
 
     private static NavigableMap<Integer, String> romanNumerals = new TreeMap<Integer, String>();
@@ -26,15 +27,24 @@ public class RomanNumeral{
     }
 
     public RomanNumeral(int number) {
+        this.numeral = number;
         this.romanNumeral = convert(number);
     }
 
-    public String getRomanNumeral() {
-        return romanNumeral;
+    public String toString() {
+        return this.romanNumeral;
+    }
+
+    public int getNumeral() {
+        return this.numeral;
     }
 
     private String convert(int number)
     {
+        if (number <= 0) {
+            return "";
+        }
+
         StringBuilder sb = new StringBuilder();
 
         while (number > 0) {
