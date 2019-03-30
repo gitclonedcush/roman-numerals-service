@@ -1,0 +1,17 @@
+info:
+    app:
+        name: Roman Numeral Service
+        description: Converts a number to a roman numeral. For example 1 => I or 5 => V 
+        version: 1.0.0
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include:
+                - metrics
+                - info
+                - health
+                - actuator
+                - httptrace
+                - loggers
