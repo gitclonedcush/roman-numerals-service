@@ -8,7 +8,7 @@ import junitparams.Parameters;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnitParamsRunner.class)
-public class RomanNumeralTests {
+public class RomanNumeralUnitTests {
 
     @Test
     @Parameters({

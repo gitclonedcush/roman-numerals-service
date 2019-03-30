@@ -39,6 +39,10 @@ public class RomanNumeral{
         return this.numeral;
     }
 
+    public String getRomanNumeral() {
+        return this.romanNumeral;
+    }
+
     private String convert(int number)
     {
         if (number <= 0) {
