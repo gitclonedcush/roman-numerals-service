@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RomanNumeralController {
 
     @RequestMapping("/romannumeral")
-    public RomanNumeral romanNumeral(@RequestParam(value="query", defaultValue="1") String query) {
-        return new RomanNumeral("IV");
+    public RomanNumeral romanNumeral(@RequestParam(value="query", defaultValue="1") Integer query) {
+        return new RomanNumeral(query);
     }
 }
