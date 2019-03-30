@@ -4,7 +4,17 @@ A java web service to convert integers to roman numeral strings
 * https://sourcegraph.com/github.com/cushind/roman-numerals-service
 
 ## Usage 
-For example `GET http://localhost:8080/romannumeral?query=12` would return the roman numeral string `XII`
+
+The main service endpoint is `/romannumeral` and can be used as follows:
+* Request: `GET http://localhost:8080/romannumeral?query=12` 
+* Response: `{numeral: 12, romanNumeral: XII}`
+
+Also available are the following `spring boot actuator` endpoints:
+* `/actuator`
+* `/actuator/health`
+* `/actuator/info`
+* `/actuator/metrics`
+* `/actuator/httptrace`
 
 ## Dependencies
 
