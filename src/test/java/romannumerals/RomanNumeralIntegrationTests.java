@@ -10,6 +10,10 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class RomanNumeralIntegrationTests {
@@ -68,5 +72,18 @@ public class RomanNumeralIntegrationTests {
 		String actual = response.getBody();
 
 		JSONAssert.assertEquals(expected, actual, false);
+	}
+
+
+	@Test
+	public void TestBadRequest() throws JSONException {
+
+		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+
+		ResponseEntity<String> response = restTemplate.exchange(
+				createURLWithPort("/romannumeral?query=1.5"),
+				HttpMethod.GET, entity, String.class);
+
+		assertThat(response.getStatusCodeValue(), is(400));
 	}
 }
