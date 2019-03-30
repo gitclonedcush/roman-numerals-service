@@ -8,14 +8,19 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 bootJar {
-    baseName = 'gs-rest-service'
-    version =  '0.1.0'
+    baseName = 'roman-numeral-service'
+    version =  '1.0.0'
+}
+
+application {
+    mainClassName = 'romannumerals.Application'
 }
 
 repositories {

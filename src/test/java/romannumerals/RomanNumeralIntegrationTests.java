@@ -10,6 +10,10 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class RomanNumeralIntegrationTests {
@@ -38,6 +42,7 @@ public class RomanNumeralIntegrationTests {
 		JSONAssert.assertEquals(expected, response.getBody(), false);
 	}
 
+	// Invalid roman numeral should result in empty romanNumeral response.
 	@Test
 	public void TestGetInvalidRomanNumeral() throws JSONException {
 
@@ -54,6 +59,7 @@ public class RomanNumeralIntegrationTests {
 		JSONAssert.assertEquals(expected, actual, true);
 	}
 
+	// Roman numeral should default to I if no query param is provided.
 	@Test
 	public void TestDefaultRomanNumeral() throws JSONException {
 
@@ -68,5 +74,19 @@ public class RomanNumeralIntegrationTests {
 		String actual = response.getBody();
 
 		JSONAssert.assertEquals(expected, actual, false);
+	}
+
+
+	// Validate that if the input is not an integer we get a bad request.
+	@Test
+	public void TestBadRequest() throws JSONException {
+
+		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+
+		ResponseEntity<String> response = restTemplate.exchange(
+				createURLWithPort("/romannumeral?query=1.5"),
+				HttpMethod.GET, entity, String.class);
+
+		assertThat(response.getStatusCodeValue(), is(400));
 	}
 }
