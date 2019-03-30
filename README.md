@@ -3,6 +3,9 @@ A java web service to convert integers to roman numeral strings
 
 * https://sourcegraph.com/github.com/cushind/roman-numerals-service
 
+### Extra Credit
+Added `health`, `info`, and `metrics` endpoints and handles roman numerals > 255
+
 ### Disclaimer
 I don't come from a java microservice background and mainly work in asp.net core and golang. However, I wanted to do this project in java to familiarize myself with the various microservice and build frameworks. Overall, I think the language is pretty intuitive and fun to use, and gradle seems like a powerful build tool.
 
