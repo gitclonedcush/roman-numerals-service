@@ -18,7 +18,7 @@ Also available are the following `spring boot actuator` endpoints:
 
 ## Dependencies
 
-Gradle:
+Gradle and Java:
 ```
 ------------------------------------------------------------
 Gradle 5.3
@@ -32,11 +32,14 @@ JVM:          11.0.2 (Oracle Corporation 11.0.2+9-LTS)
 ```
 
 ## Project Layout
+
 * The main java service files are located in `src/main/java/romannumerals`
     * Here I've defined a simple class to convert numbers to roman numerals
 * Test files are located in `src/test/java/romannumerals`
     * Integration tests -- useful for testing the actual service endpoint including query param binding and bad requests.
     * Unit tests -- to test roman numeral conversion logic and edge cases.
+* Application config is located in `/src/main/resources/application.yml`
+
 
 ## Testing
 * Run tests with `gradle test`
