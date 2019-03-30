@@ -10,6 +10,8 @@ public class RomanNumeral{
 
     private static NavigableMap<Integer, String> romanNumerals = new TreeMap<Integer, String>();
 
+    // define a mapping between integer and roman numeral
+    // see spec: http://mathworld.wolfram.com/RomanNumerals.html
     static {
         romanNumerals.put(1, "I");
         romanNumerals.put(4, "IV");
@@ -43,20 +45,24 @@ public class RomanNumeral{
         return this.romanNumeral;
     }
 
+    /**
+     * Given an input number returns the roman numeral conversion.
+     *
+     * @param  number input to convert to roman numeral 
+     * @return        the roman numeral string representation of input 
+     */
     private String convert(int number)
     {
-        if (number <= 0) {
-            return "";
-        }
-
         StringBuilder sb = new StringBuilder();
 
         while (number > 0) {
+            // floor the input number to the highest key that is < number
             int floored  = romanNumerals.floorKey(number);
             String numeral = romanNumerals.get(floored);
 
             sb.append(numeral);
 
+            // subtract the floored value and continue
             number -= floored;
         }
 

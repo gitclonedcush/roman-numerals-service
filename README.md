@@ -11,6 +11,8 @@ I don't come from a java microservice background and mainly work in asp.net core
 The main service endpoint is `/romannumeral` and can be used as follows:
 * Request: `GET http://localhost:8080/romannumeral?query=12` 
 * Response: `{ numeral: 12, romanNumeral: "XII" }`
+* Request: `GET http://localhost:8080/romannumera?query=1.5`
+* Response: `400 BAD_REQUEST`
 
 Also available are the following `spring boot actuator` endpoints:
 * `/actuator`

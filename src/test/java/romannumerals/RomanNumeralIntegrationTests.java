@@ -42,6 +42,7 @@ public class RomanNumeralIntegrationTests {
 		JSONAssert.assertEquals(expected, response.getBody(), false);
 	}
 
+	// Invalid roman numeral should result in empty romanNumeral response.
 	@Test
 	public void TestGetInvalidRomanNumeral() throws JSONException {
 
@@ -58,6 +59,7 @@ public class RomanNumeralIntegrationTests {
 		JSONAssert.assertEquals(expected, actual, true);
 	}
 
+	// Roman numeral should default to I if no query param is provided.
 	@Test
 	public void TestDefaultRomanNumeral() throws JSONException {
 
@@ -75,6 +77,7 @@ public class RomanNumeralIntegrationTests {
 	}
 
 
+	// Validate that if the input is not an integer we get a bad request.
 	@Test
 	public void TestBadRequest() throws JSONException {
 

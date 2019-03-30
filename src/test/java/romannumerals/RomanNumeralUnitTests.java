@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(JUnitParamsRunner.class)
 public class RomanNumeralUnitTests {
 
+    // These are all valid inputs and their corresponding roman numerals
     @Test
     @Parameters({
         "1, I",
@@ -32,6 +33,7 @@ public class RomanNumeralUnitTests {
         assertEquals(expectedRomanNumeral, rN.toString());
     }
 
+    // These are all invalid inputs and have no corresponding roman numeral.
     @Test
     @Parameters({
         "-100",
