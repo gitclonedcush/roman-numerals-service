@@ -66,6 +66,7 @@ Other dependencies (refer to build.gradle):
 
 ## Spec
 [Roman Numeral Spec](http://mathworld.wolfram.com/RomanNumerals.html)
+
 [Roman Numeral Spec 2](https://www.mytecbits.com/tools/mathematics/roman-numerals-converter)
 
 According to https://www.mytecbits.com/tools/mathematics/roman-numerals-converter A roman numeral can't be repeated more than 3 times, without expanding to Vinculum addition because any number greater than 3999 would result in 4 `M`s. Therefore, instead of returning invalid roman numerals, we should return a warning that the requested number is to large until expanding to the Vinculum addition.
