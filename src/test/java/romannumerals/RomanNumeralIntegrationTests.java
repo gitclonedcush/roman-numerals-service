@@ -89,4 +89,17 @@ public class RomanNumeralIntegrationTests {
 
 		assertThat(response.getStatusCodeValue(), is(400));
 	}
+
+	// Validate that if the input is too large we get a bad request. 
+	@Test
+	public void TestNumeralTooLarge() throws JSONException {
+
+		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+
+		ResponseEntity<String> response = restTemplate.exchange(
+				createURLWithPort("/romannumeral?query=4000"),
+				HttpMethod.GET, entity, String.class);
+
+		assertThat(response.getStatusCodeValue(), is(400));
+	}
 }

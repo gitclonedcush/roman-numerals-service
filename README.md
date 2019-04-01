@@ -66,6 +66,7 @@ Other dependencies (refer to build.gradle):
 
 ## Spec
 [Roman Numeral Spec](http://mathworld.wolfram.com/RomanNumerals.html)
+[Roman Numeral Spec 2](https://www.mytecbits.com/tools/mathematics/roman-numerals-converter)
 
 A number can be converted to a roman numeral with the following algorithm:
 * If number is 0 return

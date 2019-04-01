@@ -26,7 +26,8 @@ public class RomanNumeralUnitTests {
         "500, D",
         "555, DLV",
         "3000, MMM",
-        "3004, MMMIV"
+        "3004, MMMIV",
+        "3999, MMMCMXCIX"
     })
     public void TestCreateRomanNumeral(int numeral, String expectedRomanNumeral) {
         RomanNumeral rN = new RomanNumeral(numeral);
