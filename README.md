@@ -1,6 +1,8 @@
 # roman-numerals-service
 A java web service to convert integers to roman numeral strings
 
+Does not support numbers greater than 10 million (10000000). Requests for conversion of numbers greater than 10 million will result in a 400 bad request with an informative error message.
+
 * https://sourcegraph.com/github.com/cushind/roman-numerals-service
 
 ### Extra Credit
@@ -69,7 +71,9 @@ Other dependencies (refer to build.gradle):
 
 [Roman Numeral Spec 2](https://www.mytecbits.com/tools/mathematics/roman-numerals-converter)
 
-According to https://www.mytecbits.com/tools/mathematics/roman-numerals-converter A roman numeral can't be repeated more than 3 times, without expanding to Vinculum addition because any number greater than 3999 would result in 4 `M`s. Therefore, instead of returning invalid roman numerals, we should return a warning that the requested number is too large until expanding to the Vinculum addition.
+Uses the Vinculum addition.
+
+Currently does not support numbers greater than 10M (10000000)
 
 A number can be converted to a roman numeral with the following algorithm:
 * If number is 0 return

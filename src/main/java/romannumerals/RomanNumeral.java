@@ -26,6 +26,22 @@ public class RomanNumeral{
         romanNumerals.put(500, "D");
         romanNumerals.put(900, "CM");
         romanNumerals.put(1000, "M");
+        romanNumerals.put(4000, "I\u0305V\u0305");
+        romanNumerals.put(5000, "V\u0305");
+        romanNumerals.put(9000, "I\u0305X\u0305");
+        romanNumerals.put(10000, "X\u0305");
+        romanNumerals.put(40000, "X\u0305L\u0305");
+        romanNumerals.put(50000, "L\u0305");
+        romanNumerals.put(90000, "X\u0305C\u0305");
+        romanNumerals.put(100000, "C\u0305");
+        romanNumerals.put(400000, "C\u0305D\u0305");
+        romanNumerals.put(500000, "D\u0305");
+        romanNumerals.put(900000, "C\u0305M\u0305");
+        romanNumerals.put(1000000, "M\u0305");
+        romanNumerals.put(4000000, "I\u0305\u0305V\u0305\u0305");
+        romanNumerals.put(5000000, "V\u0305\u0305");
+        romanNumerals.put(9000000, "I\u0305\u0305X\u0305\u0305");
+        romanNumerals.put(10000000, "X\u0305\u0305");
     }
 
     public RomanNumeral(int number) {

@@ -13,7 +13,7 @@ public class RomanNumeralController {
      * RomanNumeralController 
      * Given an input number returns the corresponding roman numeral.
      * 
-     * Currently does not  support roman numerals greater than 3999.
+     * Currently does not  support roman numerals greater than 10,000,000.
      * 
      * For example:
      *      /romannumeral?query=6
@@ -27,8 +27,8 @@ public class RomanNumeralController {
      */
     @RequestMapping("/romannumeral")
     public RomanNumeral romanNumeral(@RequestParam(value="query", defaultValue="1") Integer query) {
-        if (query > 3999) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Requested roman numeral is too large, and must not exceed 3999");
+        if (query < 1 || query > 10000000) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Requested roman numeral is not between 1 and 10000000");
         }
         return new RomanNumeral(query);
     }

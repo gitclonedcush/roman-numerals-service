@@ -42,23 +42,6 @@ public class RomanNumeralIntegrationTests {
 		JSONAssert.assertEquals(expected, response.getBody(), false);
 	}
 
-	// Invalid roman numeral should result in empty romanNumeral response.
-	@Test
-	public void TestGetInvalidRomanNumeral() throws JSONException {
-
-		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-
-		ResponseEntity<String> response = restTemplate.exchange(
-				createURLWithPort("/romannumeral?query=0"),
-				HttpMethod.GET, entity, String.class);
-
-		String expected = "{\"numeral\":0,\"romanNumeral\":\"\"}";
-		String actual = response.getBody();
-
-		// Enable strict checking so we ne know we actually get an empty string
-		JSONAssert.assertEquals(expected, actual, true);
-	}
-
 	// Roman numeral should default to I if no query param is provided.
 	@Test
 	public void TestDefaultRomanNumeral() throws JSONException {
@@ -97,7 +80,19 @@ public class RomanNumeralIntegrationTests {
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 
 		ResponseEntity<String> response = restTemplate.exchange(
-				createURLWithPort("/romannumeral?query=4000"),
+				createURLWithPort("/romannumeral?query=10000001"),
+				HttpMethod.GET, entity, String.class);
+
+		assertThat(response.getStatusCodeValue(), is(400));
+	}
+
+	@Test
+	public void TestNumeralTooSmall() throws JSONException {
+
+		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+
+		ResponseEntity<String> response = restTemplate.exchange(
+				createURLWithPort("/romannumeral?query=-1"),
 				HttpMethod.GET, entity, String.class);
 
 		assertThat(response.getStatusCodeValue(), is(400));
